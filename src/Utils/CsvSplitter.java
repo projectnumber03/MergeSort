@@ -20,11 +20,11 @@ public class CsvSplitter {
         int fileLinesCnt = 1;
         ArrayList<Record> list = new ArrayList<>();
 
-        while ((line = br.readLine()) != null){
+        while ((line = br.readLine()) != null) {
             if (fileLinesCnt < 16000) {
                 list.add(new Record(line));
                 fileLinesCnt++;
-            }else {
+            } else {
                 list.add(new Record(line));
                 Collections.sort(list, new RecComparator());
                 rw.write(list);

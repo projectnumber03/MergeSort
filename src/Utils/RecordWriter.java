@@ -6,9 +6,9 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class RecordWriter {
-    int fileIndex;
+    private int fileIndex;
 
-    public RecordWriter() {
+    RecordWriter() {
         this.fileIndex = 0;
         createTempDir();
     }
@@ -18,7 +18,7 @@ public class RecordWriter {
         fileIndex++;
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         for (Record rcrd : linesToWrite) {
-            if(linesToWrite.indexOf(rcrd) != linesToWrite.size() - 1){
+            if (linesToWrite.indexOf(rcrd) != linesToWrite.size() - 1) {
                 bw.write(rcrd.getValue() + "\n");
             } else bw.write(rcrd.getValue());
         }
@@ -26,11 +26,11 @@ public class RecordWriter {
         bw.close();
     }
 
-    private void createTempDir(){
-        try{
+    private void createTempDir() {
+        try {
             File temp = new File("temp");
             temp.mkdir();
-        }catch (SecurityException se){
+        } catch (SecurityException se) {
             System.out.print("Временная директория уже существует");
         }
     }
