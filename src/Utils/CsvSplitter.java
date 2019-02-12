@@ -4,8 +4,7 @@ import Comparators.RecComparator;
 import Model.Record;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class CsvSplitter {
     private BufferedReader br;
